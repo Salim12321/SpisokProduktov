@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список продуктов</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+        h1, h2 {
+            font-size: 24px;
+        }
+    </style>
+    <script>
+        function checkName() {
+            var username = document.getElementById('username').value;  // Получаем значение из поля ввода
+            var greeting = document.getElementById('greeting');  // Элемент для приветствия
+            var productList = document.getElementById('productList');  // Элемент для списка продуктов
+            
+            // Если введено имя "Света"
+            if (username === 'Света') {
+                greeting.innerHTML = 'Привет, Света! Вот список продуктов:';  // Изменяем текст приветствия
+                productList.style.display = 'block';  // Показываем список продуктов
+            } else if (username !== '') {
+                greeting.innerHTML = 'Привет, ' + username + '!';  // Приветствие для других имён
+                productList.style.display = 'none';  // Скрываем список продуктов
+            } else {
+                greeting.style.display = 'none';  // Скрываем приветствие, если поле пустое
+                productList.style.display = 'none';  // Скрываем список продуктов
+            }
+            greeting.style.display = username !== '' ? 'block' : 'none';  // Показываем или скрываем приветствие
+        }
+    </script>
+</head>
+<body>
+
+    <form>
+        <label for="username">Имя:</label>
+        <input type="text" name="username" id="username" oninput="checkName()">  <!-- Слушаем изменения в поле ввода -->
+    </form>
+
+    <!-- Приветствие, которое появится в зависимости от введённого имени -->
+    <div id="greeting" style="display: none;">
+        <!-- Здесь будет отображаться приветствие -->
+    </div>
+
+    <!-- Список продуктов -->
+    <div id="productList" style="display: none;">
+        <h1>Список продуктов</h1>
+        <ol>
+            <li><h2>Купить мясо</h2></li>
+            <li><h2>Купить молоко</h2></li>
+            <li><h2>Купить лапшу:</h2></li>
+            <img src="https://avatars.mds.yandex.net/i?id=4148bdaaec4d77c9469ebab226964a5964216cd0-5629711-images-thumbs&n=13" alt="Вот такую лапшу">
+            <li><h2>Купить кашу</h2></li>
+            <li><h2>Купить творожный сыр</h2></li>
+            <li><h2>Купить сок</h2></li>
+            <li><h2>Купить корм для кошек</h2></li>
+            <li><h2>Памперы для Мии</h2></li>
+            <li><h2>Бумажные полотенца</h2></li>
+        </ol>
+    </div>
+
+</body>
+</html>
+
+
+
